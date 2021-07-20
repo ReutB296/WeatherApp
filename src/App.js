@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import { Header } from './Header';
+import { SearchCity } from './SearchCity';
+import CityResultProvider from './CityResultContaxt';
+import ForecastProvider from './forcastContaxt';
+import CurrentProvider from './currentContext';
+import  CityResult  from './CityResult';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <CityResultProvider>
+          <ForecastProvider>
+            <CurrentProvider>
+              <Header/>
+              <SearchCity/>
+              <CityResult/>
+            </CurrentProvider>
+          </ForecastProvider>
+        </CityResultProvider>
+      </div>
+    </Router>
   );
 }
 
