@@ -26,6 +26,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background-image: url('./pexels-miguel-á-padriñán-19670.jpg');
+  background-size: cover;
 }
 ol, ul {
 	list-style: none;

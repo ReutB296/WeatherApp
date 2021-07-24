@@ -8,7 +8,7 @@ export const CurrentContaxt = React.createContext({
 export default function CurrentProvider({children}){
     const [current, setCurrent] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => { // fetch as default TLV current weather
         fetch('http://localhost:8080/cities/Tel-aviv/current')
           .then(response => response.json())
           .then(data => setCurrent(data))

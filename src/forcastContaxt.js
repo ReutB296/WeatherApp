@@ -8,7 +8,7 @@ export const ForecastContaxt = React.createContext({
 export default function ForecastProvider({children}){
     const [forecasts, setForecast] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => { // fetch as default TLV 5 daily forecast
         fetch('http://localhost:8080/cities/Tel-aviv/forcasts')
           .then(response => response.json())
           .then(data => setForecast(data))

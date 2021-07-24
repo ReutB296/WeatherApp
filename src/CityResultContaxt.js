@@ -8,13 +8,12 @@ export const CityResultContaxt = React.createContext({
 export default function CityResultProvider({children}){
     const [cities, setCities] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {// fetch as default TLV 
         fetch('http://localhost:8080/cities/Tel-aviv')
           .then(response => response.json())
           .then(data => setCities(data))
       }, []);
 
-      console.log(cities);
 
       return (
         <CityResultContaxt.Provider value={{

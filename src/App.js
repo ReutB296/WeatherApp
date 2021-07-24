@@ -4,13 +4,14 @@ import { SearchCity } from './SearchCity';
 import CityResultProvider from './CityResultContaxt';
 import ForecastProvider from './forcastContaxt';
 import CurrentProvider from './currentContext';
+import FavoritesProvider from './FavoritsContext';
 import  CityResult  from './CityResult';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Favorites from './Favorites';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 
@@ -24,9 +25,18 @@ function App() {
         <CityResultProvider>
           <ForecastProvider>
             <CurrentProvider>
+            <FavoritesProvider>
               <Header/>
-              <SearchCity/>
-              <CityResult/>
+              <Switch>
+                <Route path="/Home">
+                  <SearchCity/>
+                  <CityResult/>
+                </Route>
+                <Route path="/Favorites">
+                  <Favorites/>
+                </Route>
+              </Switch>
+            </FavoritesProvider>
             </CurrentProvider>
           </ForecastProvider>
         </CityResultProvider>
